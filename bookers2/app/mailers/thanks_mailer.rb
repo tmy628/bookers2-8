@@ -2,8 +2,8 @@ class ThanksMailer < ApplicationMailer
   default from: 'from@example.com'
 
   def thanks_email
-    @user = params[:user]
-    mail(to: @user.email, subject: 'Thank you for your registration!')
+    @user = user
+    mail(to: user.email, subject: 'Thank you for your registration!')
   end
 end
 

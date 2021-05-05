@@ -2,13 +2,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      ThanksMailer.thanks_email(@user).deliver
-    end
-  end
-
   def show
     @user = User.find(params[:id])
     @books = @user.books

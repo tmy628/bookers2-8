@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'search/search'
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+  }
 
   root :to => "homes#top"
   get "home/about" => "homes#about"
@@ -16,6 +19,5 @@ Rails.application.routes.draw do
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
-  # relationships は中間テーブルなので、usersモデルにネストさせる
 
 end

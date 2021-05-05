@@ -1,10 +1,6 @@
 class ThanksMailer < ApplicationMailer
-  default from: 'from@example.com'
-
-  def thanks_email
+  def thanks_mail(user)
     @user = user
-    mail(to: user.email, subject: 'Thank you for your registration!')
+  mail(to: @user.email, subject: 'Welcome to Our Application!')
   end
 end
-
-# mail(to: 宛先, subject: '件名')
